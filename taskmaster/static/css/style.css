@@ -1,0 +1,104 @@
+/* General Reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Action Icons */
+td a {
+    margin-right: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+td a:hover {
+    color: #0056b3;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    table {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    tr {
+        margin-bottom: 15px;
+    }
+
+    th {
+        display: none;
+    }
+
+    td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        margin: 10px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    td {
+        font-size: 0.85rem;
+    }
+    td a {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskMaster</title>
+    <!-- Link to your custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Meta tag for responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+
+<body>
+    <h1>My Tasks</h1>
+
+    <!-- Pending Tasks -->
+    <h2>Pending Tasks</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in pending_tasks %}
+        <tr>
+            <td data-label="Title">{{ task.title }}</td>
+            <td data-label="Due Date">{{ task.due_date }}</td>
+            <td data-label="Status">{{ task.status }}</td>
+            <td data-label="Actions">
+                <a href="#"><i class="fa fa-edit"></i></a>
+                <a href="#"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">No pending tasks</td></tr>
+        {% endfor %}
+    </table>
+
+    <!-- Completed Tasks -->
+    <h2>Completed Tasks</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in completed_tasks %}
+        <tr>
+            <td data-label="Title">{{ task.title }}</td>
+            <td data-label="Due Date">{{ task.due_date }}</td>
+            <td data-label="Status">{{ task.status }}</td>
+            <td data-label="Actions">
+                <a href="#"><i class="fa fa-edit"></i></a>
+                <a href="#"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">No completed tasks</td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
